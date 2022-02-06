@@ -2,5 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <bean class="org.itstep.rpository.impl.MemoryToDoRepository" id="toDoRepository">
+        <constructor-arg name="size" value="100"/>
+    </bean>
+    <bean class="org.itstep.service.ToDoService" id="toDoService">
+        <property name="repository" ref="toDoRepository"/>
+<!--        <constructor-arg name="repository" ref="toDoRepository" />-->
+    </bean>
 </beans>

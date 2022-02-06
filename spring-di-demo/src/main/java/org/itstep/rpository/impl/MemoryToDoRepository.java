@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemoryToDoRepository implements ToDoRepository {
-    private List<ToDoItem> toDoItems = new ArrayList<>();
+    private final List<ToDoItem> toDoItems;
+
+    public MemoryToDoRepository(int size) {
+        this.toDoItems = new ArrayList<>(size);
+    }
 
     @Override
     public void save(ToDoItem entity) {
